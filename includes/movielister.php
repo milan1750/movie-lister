@@ -14,11 +14,16 @@ class MovieLister {
 
     protected function includes() {
         include ( ML_PLUGIN_PATH. '/includes/ml-custom-post.php');
+        include ( ML_PLUGIN_PATH. '/includes/shortcodes.php');
+        include ( ML_PLUGIN_PATH. '/includes/taxonomies.php');
     }
 
     public function init () {
-        $customPost = new MlCustomPost();
-        $customPost->craete_ml_custom_post();
+        ShortCodes::createShortCode();
+        MlCustomPost::craete_ml_custom_post();
+        MlCustomPost::flush_link();
+        MlCustomPost::change_title_place();
+        Taxonomies::create_custom_taxonomy();
     }
 
     public function load() {
