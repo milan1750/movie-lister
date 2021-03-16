@@ -4,9 +4,9 @@ namespace movielister\includes;
 
 defined( 'ABSPATH' ) || exit;
 
-class MlCustomPost {
+class CustomPosts {
 
-    public static function craete_ml_custom_post () {
+    public static function craete_custom_post () {
 
         add_action( 'init',  function () {
             $labels = array (
