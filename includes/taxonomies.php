@@ -5,7 +5,7 @@ namespace movielister\includes;
 defined( 'ABSPATH' ) || exit;
 
 class Taxonomies {
-    
+
     public static function create_custom_taxonomy() {
         add_action( 'init', function () {
             $labels = array(
@@ -46,7 +46,7 @@ class Taxonomies {
                 'menu_name'         => __( 'Movie Tags' ),
             );
             $args   = array(
-                'hierarchical'      => true, // make it hierarchical (like categories)
+                'hierarchical'      => false, // make it hierarchical (like categories)
                 'labels'            => $labels,
                 'show_ui'           => true,
                 'show_admin_column' => true,
