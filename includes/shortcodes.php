@@ -5,7 +5,7 @@ namespace movielister\includes;
 defined( 'ABSPATH' ) || exit;
 
 class ShortCodes {
-    
+
     public static function createShortCode() {
         add_shortcode( 'ml_movies_list', function ( $atts ) {
             $atts = shortcode_atts(array( 'per_page' => 2), $atts );
@@ -20,11 +20,11 @@ class ShortCodes {
             while ( $posts->have_posts() ) {
                 $posts->the_post();
                 $output .= '
-                    <div class="entry-content"><h1>'
+                    <div class="entry-content"><h1><a href="'.get_the_permalink().'">'
                     .get_the_title()
                     .'</h1>'
                     .get_the_post_thumbnail( get_the_ID(), 'post-thumbnail', array( 'class' => 'movie-img' ) )
-                    .'<p>'
+                    .'</a><p>'
                     .get_the_content()
                     .'</p></div>';
                     
